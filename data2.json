@@ -14,12 +14,3 @@
         {"id": 104, "name": "Web Development"}
     ]
 }
-
-Task:
-
-We will:
-
-Remove users with missing names.
-Remove duplicate friend entries.
-Remove inactive users (users with no friends and no liked pages).
-Deduplicate pages based on IDs.
