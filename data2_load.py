@@ -11,9 +11,14 @@ def cleanData(data):
 
     # remove inactive users
     data['users'] = [user for user in data['users'] if user['friends'] or user['liked_pages']]
+
+    # remove duplicate pages
+    unique_pages = {}
+    for page in data['pages']:
+        unique_pages[page['id']] = page 
+    data['pages'] = list(unique_pages.values()) 
+    
     return data
-
-
 
 data = json.load(open("data2.json"))
 data = cleanData(data)
