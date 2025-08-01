@@ -15,6 +15,15 @@ def find_people_you_may_know(user_id,data):
 #   {1: {2, 3}, 2: {1, 4}, 3: {1}, 4: {2}, 5: set()}
 
 
+
+
+
+
+
+
+
+
+
 data = data_load("data.json")
 user_id = 1
 recc = find_people_you_may_know(user_id,data)
