@@ -1,11 +1,16 @@
 import json
 
 def cleanData(data):
-    #remove missing spaces
-    data['user'] = [user for user in data['users'] if user ['name'].strip()]
+
+    # remove missing spaces
+    data['users'] = [user for user in data['users'] if user ['name'].strip()]
+
     # remove duplicate friends
     for user in data['users']:
         user['friends'] = list(set(user['friends']))
+
+    # remove inactive users
+    data['users'] = [user for user in data['users'] if user['friends'] or user['liked_pages']]
     return data
 
 
