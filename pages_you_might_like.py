@@ -23,15 +23,18 @@ def pages_you_might_like(user_id,data):
     user_liked_pages = user_pages[user_id]
     # user_liked_pages is now {101}.
 
-    # to store potential liked pages and their score
+    # To store potential liked pages and their score
     page_suggestions = {}
 
 
     for other_user, pages in user_pages.items():
-    #other_user will be the user ID, and pages will be the set of pages they liked.
+    # Other_user will be the user ID, and pages will be the set of pages they liked.
         if other_user != user_id:
             shared_pages = user_liked_pages.interaction(pages)
             for page in pages:
                 if page not in user_liked_pages:
                     page_suggestions[page] = page_suggestions.get(page,0) + len(shared_pages)
-                    
+                    # After the loop finishes, the page_suggestions dictionary is {'102': 0, '103': 1, '104': 0}.
+        
+    sorted_pages = sorted(page_suggestions.items(), k = lambda x: x[1], reverse=True)
+    # The result of the sorting is sorted_pages = [('103', 1), ('102', 0), ('104', 0)].
