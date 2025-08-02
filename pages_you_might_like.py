@@ -23,4 +23,13 @@ def pages_you_might_like(user_id,data):
     user_liked_pages = user_pages[user_id]
     # user_liked_pages is now {101}.
 
-    
+    # to store potential liked pages and their score
+    page_suggestions = {}
+
+
+    for other_user, pages in user_pages.items():
+    #other_user will be the user ID, and pages will be the set of pages they liked.
+        if other_user != user_id:
+            shared_pages = user_liked_pages.interaction(pages)
+
+
