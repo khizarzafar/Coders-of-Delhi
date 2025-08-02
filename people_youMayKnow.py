@@ -33,11 +33,13 @@ def find_people_you_may_know(user_id,data):
                 suggestions[mutual] = suggestions.get(mutual,0) + 1
                 #   The suggestions dictionary becomes {4: 1}
 
+    #!Step 4: Sorting and Returning Recommendations
+    sorted_suggestions = sorted(suggestions.items(), key= lambda x: x[1], reverse = True)
+    #example to understand:The sorted list is [(13, 2), (14, 1)] because 2 is greater than 1
+    return [user_id for user_id, _ in sorted_suggestions]
 
 
-
-
-data = data_load("data.json")
+data = data_load("massive_data.json")
 user_id = 1
 recc = find_people_you_may_know(user_id,data)
 print(recc)
