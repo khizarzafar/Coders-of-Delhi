@@ -31,5 +31,7 @@ def pages_you_might_like(user_id,data):
     #other_user will be the user ID, and pages will be the set of pages they liked.
         if other_user != user_id:
             shared_pages = user_liked_pages.interaction(pages)
-
-
+            for page in pages:
+                if page not in user_liked_pages:
+                    page_suggestions[page] = page_suggestions.get(page,0) + len(shared_pages)
+                    
