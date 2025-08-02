@@ -41,5 +41,5 @@ def find_people_you_may_know(user_id,data):
 
 data = data_load("massive_data.json")
 user_id = 1
-recc = find_people_you_may_know(user_id,data)
-print(recc)
+recommendations = find_people_you_may_know(user_id,data)
+print(f"People you may know for {user_id} are {recommendations}")
