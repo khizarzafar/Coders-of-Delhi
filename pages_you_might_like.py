@@ -45,3 +45,4 @@ data = load_data('data.json')
 user_id = 1
 page_recommendations = pages_you_might_like(user_id,data)
 print(f"Pages you might like for user {user_id} are {page_recommendations}.")
+
